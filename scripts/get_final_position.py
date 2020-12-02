@@ -30,6 +30,9 @@ class GetFinalPosition:
                                    header=None, names=['direction', 'steps'])
         return instructions
 
+    def test(self):
+        pass
+
 
 if __name__ == '__main__':
     GetFinalPosition = GetFinalPosition()
