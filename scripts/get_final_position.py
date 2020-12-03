@@ -1,37 +1,31 @@
-import os
+import warnings
 
-import pandas as pd
+from load_ressources import load_ressources
+from robot_actions import get_final_position
+
+warnings.filterwarnings("ignore")
 
 
 class GetFinalPosition:
     def __init__(self):
         self.universe_file = 'universe.txt'
         self.instructions_file = 'instrucion_list.txt'
+        self.initial_position = (0, 0)
+        self.initial_orientation = 'up'
 
     def run(self):
-        universe = self.load_universe()
-        instructions = self.load_instructions()
+        universe, instructions = load_ressources(self.universe_file, self.instructions_file)
+        final_position = get_final_position(self.initial_position, self.initial_orientation, universe,
+                                            instructions)
+        self.display_final_result(final_position)
 
-    def load_universe(self) -> pd.DataFrame:
+    def display_final_result(self, final_position: tuple) -> None:
         """
-        Loading the universe file in a panda dataframe
-        :return: dataframe containing universe data
+        Displaying the final positiong of the robot
+        :param final_position: The robot position
+        :return:
         """
-        universe = pd.read_csv(os.path.join(os.getcwd(), 'resources', self.universe_file), sep=': ', header=None,
-                               names=['side', 'size'])
-        return universe
-
-    def load_instructions(self) -> pd.DataFrame:
-        """
-        Loading the instructions file in a panda dataframe
-        :return: dataframe containing instructions data
-        """
-        instructions = pd.read_csv(os.path.join(os.getcwd(), 'resources', self.instructions_file), sep=', ',
-                                   header=None, names=['direction', 'steps'])
-        return instructions
-
-    def test(self):
-        pass
+        print(f' The B-VZXR Robot will be in ( {final_position[0]} , {final_position[1]} ) !!!')
 
 
 if __name__ == '__main__':
