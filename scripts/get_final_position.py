@@ -19,7 +19,8 @@ class GetFinalPosition:
                                             instructions)
         self.display_final_result(final_position)
 
-    def display_final_result(self, final_position: tuple) -> None:
+    @staticmethod
+    def display_final_result(final_position: tuple) -> None:
         """
         Displaying the final positiong of the robot
         :param final_position: The robot position

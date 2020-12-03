@@ -4,6 +4,8 @@ import pandas as pd
 def get_final_position(position: tuple, orientation: str, universe: pd.DataFrame, instructions: pd.DataFrame) -> tuple:
     """
     function which will execute all mouvement instruction to find the final postion of the robot
+    :param position: initial robot position in the map
+    :param orientation: initial robot orientation
     :param universe: the map dimensions
     :param instructions: the dataframe containing all consecutive instructions
     :return: tuple containing the final coordinate of the robot
