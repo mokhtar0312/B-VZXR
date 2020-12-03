@@ -7,7 +7,7 @@ Le but de l'exercice est de construire un programme qui lit une suite d'instruct
 * Python 3.7.0
 * Pandas 1.1.4
 
-## Instalation
+## Installation
 Le code source est disponible sur : https://github.com/pandas-dev/pandas
 
 Pour installer pandas:
